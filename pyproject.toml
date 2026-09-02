@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smart-data-reconciler"
+version = "1.0.0"
+description = "Auditable CSV reconciliation with normalization, explainable fuzzy matching and HTML reports."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Denis Maier"}]
+
+[project.scripts]
+reconcile-data = "data_reconciler.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.2", "ruff>=0.6"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
